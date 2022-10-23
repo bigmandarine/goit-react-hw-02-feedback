@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { StatisticListStyle } from './Statistic.styled';
 export const Statistic = ({
   good,
   neutral,
@@ -5,30 +7,32 @@ export const Statistic = ({
   countTotalFeedback,
   countPositiveFeedbackPercentage,
 }) => {
-  const total = countTotalFeedback();
-  const percent = countPositiveFeedbackPercentage();
   return (
-    <div>
-      <p>Statistics:</p>
-      <ul>
-        <li>
-          Good:<span>{good}</span>
-        </li>
-        <li>
-          Netural:<span>{neutral}</span>
-        </li>
-        <li>
-          Bad:<span>{bad}</span>
-        </li>
-        <li>
-          Total:
-          <span>{total}</span>
-        </li>
-        <li>
-          Positive feedback:
-          <span>{percent}%</span>
-        </li>
-      </ul>
-    </div>
+    <StatisticListStyle>
+      <li>
+        Good:<span>{good}</span>
+      </li>
+      <li>
+        Netural:<span>{neutral}</span>
+      </li>
+      <li>
+        Bad:<span>{bad}</span>
+      </li>
+      <li>
+        Total:
+        <span>{countTotalFeedback}</span>
+      </li>
+      <li>
+        Positive feedback:
+        <span>{countPositiveFeedbackPercentage}%</span>
+      </li>
+    </StatisticListStyle>
   );
+};
+Statistic.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  countTotalFeedback: PropTypes.number.isRequired,
+  countPositiveFeedbackPercentage: PropTypes.number.isRequired,
 };
