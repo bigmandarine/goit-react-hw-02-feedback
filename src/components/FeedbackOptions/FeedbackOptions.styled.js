@@ -9,4 +9,9 @@ export const FeedbackButtonsStyle = styled.button`
   border-radius: 2px;
   box-shadow: rgb(0 0 0 / 20%) 0px 4px 4px, rgb(0 0 0 / 20%) 0px 2px 2px,
     rgb(0 0 0 / 20%) 0px 2px 2px;
+  :active {
+    background-color: #5793f4;
+    color: #fffffffa;
+    border: 1px solid #5793f4;
+  }
 `;
